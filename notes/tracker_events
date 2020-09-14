@@ -1,0 +1,44 @@
+NNet.Replay.Tracker.SUnitBornEvent
+NNet.Replay.Tracker.SPlayerSetupEvent
+NNet.Replay.Tracker.SUnitDoneEvent
+NNet.Replay.Tracker.SUnitInitEvent
+NNet.Replay.Tracker.SPlayerStatsEvent
+NNet.Replay.Tracker.SUnitTypeChangeEvent
+NNet.Replay.Tracker.SUnitPositionsEvent
+NNet.Replay.Tracker.SUpgradeEvent
+NNet.Replay.Tracker.SUnitDiedEvent
+
+need:
+The default generator returned by decoder.decode_replay_tracker_events is ordered by _gameloop.
+We use:
+    NNet.Replay.Tracker.SPlayerSetupEvent
+    NNet.Replay.Tracker.SUnitBornEvent
+    NNet.Replay.Tracker.SUnitTypeChangeEvent
+    NNet.Replay.Tracker.SUnitDiedEvent
+    NNet.Replay.Tracker.SUnitInitEvent
+
+Common to all events:
+    '_event'
+    '_gameloop'
+Depending on the type of '_event', the elements of interest a
+NNet.Replay.Tracker.SPlayerSetupEvent:
+    'm_playerId' (always 1 or 2)
+NNet.Replay.Tracker.SUnitDiedEvent:
+    'm_unitTagIndex'
+    'm_killerPlayerId'
+NNet.Replay.Tracker.SUnitBornEvent:
+    'm_unitTagIndex'
+    'm_unitTypeName'
+    'm_controlPlayerId'
+NNet.Replay.Tracker.SUnitTypeChangeEvent:
+    'm_unitTagIndex'
+    'm_unitTypeName'
+    includes Zergling
+NNet.Replay.Tracker.SUnitInitEvent:
+    'm_unitTagIndex'
+    'm_unitTypeName'
+    'm_controlPlayerId'
+
+Nnet.Replay.Tracker.SUnitDoneEvent doesn't seem useful.
+
+
